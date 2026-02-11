@@ -41,7 +41,7 @@ export const ConversationSidebar = ({ activeId, onSelect, onNew }: Props) => {
   };
 
   return (
-    <div className="flex flex-col h-full bg-card/50 border-r border-border w-64 backdrop-blur-md">
+    <div className="flex flex-col h-full bg-card/30 border-r border-border/30 w-64 backdrop-blur-xl shadow-2xl shadow-background/50">
       <div className="p-3 border-b border-border">
         <button
           onClick={onNew}
