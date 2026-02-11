@@ -1,0 +1,4 @@
+project_id = "iryjjnskiapwuptjzsnl"
+
+[functions.openclaw-chat]
+verify_jwt = false
