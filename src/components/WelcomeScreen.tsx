@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import { LobsterMascot } from "./LobsterMascot";
-import openclawLogo from "@/assets/openclaw-logo.png";
 
 interface WelcomeScreenProps {
   onSuggestionClick: (question: string) => void;
@@ -22,13 +21,7 @@ export const WelcomeScreen = ({ onSuggestionClick }: WelcomeScreenProps) => (
   >
     <LobsterMascot size="lg" />
 
-    <img
-      src={openclawLogo}
-      alt="OpenClaw"
-      className="w-48 mt-4 mb-2 object-contain"
-    />
-
-    <p className="text-muted-foreground text-center mb-1 text-sm">
+    <p className="text-muted-foreground text-center mb-1 text-sm mt-4">
       The AI That Actually Does Things
     </p>
     <p className="text-muted-foreground/60 text-center mb-8 text-xs max-w-md">
