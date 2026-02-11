@@ -42,7 +42,7 @@ const Auth = () => {
         className="relative z-10 w-full max-w-sm mx-auto px-4"
       >
         <div className="flex flex-col items-center mb-6">
-          <LobsterMascot size="lg" />
+          <LobsterMascot size="sm" />
           <h1 className="text-xl font-bold mt-3">
             <span className="text-[hsl(var(--claw-coral))]">Open</span>
             <span className="text-foreground">Claw</span>
