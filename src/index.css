@@ -1,96 +1,56 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
-
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
+    --background: 220 40% 6%;
+    --foreground: 180 20% 90%;
 
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
+    --card: 220 35% 10%;
+    --card-foreground: 180 20% 90%;
 
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover: 220 35% 10%;
+    --popover-foreground: 180 20% 90%;
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 0 75% 55%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
+    --secondary: 180 40% 15%;
+    --secondary-foreground: 180 20% 90%;
 
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
+    --muted: 220 30% 14%;
+    --muted-foreground: 200 15% 55%;
 
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
+    --accent: 160 70% 40%;
+    --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 210 40% 98%;
 
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --border: 220 25% 18%;
+    --input: 220 25% 18%;
+    --ring: 0 75% 55%;
 
-    --radius: 0.5rem;
+    --radius: 1rem;
 
-    --sidebar-background: 0 0% 98%;
+    --claw-red: 0 75% 55%;
+    --claw-coral: 12 80% 60%;
+    --claw-deep: 220 50% 4%;
+    --claw-teal: 180 50% 20%;
+    --claw-green: 140 70% 50%;
+    --claw-bubble: 190 60% 70%;
 
-    --sidebar-foreground: 240 5.3% 26.1%;
-
-    --sidebar-primary: 240 5.9% 10%;
-
-    --sidebar-primary-foreground: 0 0% 98%;
-
-    --sidebar-accent: 240 4.8% 95.9%;
-
-    --sidebar-accent-foreground: 240 5.9% 10%;
-
-    --sidebar-border: 220 13% 91%;
-
-    --sidebar-ring: 217.2 91.2% 59.8%;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-background: 220 40% 6%;
+    --sidebar-foreground: 180 20% 90%;
+    --sidebar-primary: 0 75% 55%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 180 40% 15%;
+    --sidebar-accent-foreground: 180 20% 90%;
+    --sidebar-border: 220 25% 18%;
+    --sidebar-ring: 0 75% 55%;
   }
 }
 
@@ -101,5 +61,140 @@ All colors MUST be HSL.
 
   body {
     @apply bg-background text-foreground;
+    font-family: 'Space Grotesk', sans-serif;
   }
+
+  code, pre {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Bubble animation */
+@keyframes bubble-rise {
+  0% {
+    transform: translateY(100vh) scale(0.4);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1);
+    opacity: 0;
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  15% { transform: rotate(-8deg); }
+  30% { transform: rotate(8deg); }
+  45% { transform: rotate(-6deg); }
+  60% { transform: rotate(6deg); }
+  75% { transform: rotate(-3deg); }
+}
+
+@keyframes claw-snap {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.85); }
+}
+
+@keyframes glow-pulse {
+  0%, 100% { opacity: 0.6; filter: blur(8px); }
+  50% { opacity: 1; filter: blur(12px); }
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, hsl(var(--claw-bubble) / 0.3), hsl(var(--claw-bubble) / 0.05));
+  border: 1px solid hsl(var(--claw-bubble) / 0.15);
+  animation: bubble-rise linear infinite;
+  pointer-events: none;
+}
+
+.animate-wiggle {
+  animation: wiggle 0.8s ease-in-out;
+}
+
+.animate-claw-snap {
+  animation: claw-snap 0.4s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
+
+/* Markdown styles */
+.prose-openclaw {
+  @apply text-foreground;
+}
+
+.prose-openclaw h1,
+.prose-openclaw h2,
+.prose-openclaw h3 {
+  color: hsl(var(--claw-coral));
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  margin-top: 1em;
+  margin-bottom: 0.5em;
+}
+
+.prose-openclaw p {
+  margin-bottom: 0.5em;
+  line-height: 1.6;
+}
+
+.prose-openclaw code {
+  background: hsl(var(--muted));
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.85em;
+  color: hsl(var(--claw-coral));
+}
+
+.prose-openclaw pre {
+  background: hsl(var(--claw-deep));
+  border: 1px solid hsl(var(--border));
+  border-radius: 8px;
+  padding: 1em;
+  overflow-x: auto;
+  margin: 0.75em 0;
+}
+
+.prose-openclaw pre code {
+  background: none;
+  padding: 0;
+  color: hsl(var(--foreground));
+}
+
+.prose-openclaw ul,
+.prose-openclaw ol {
+  padding-left: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+.prose-openclaw li {
+  margin-bottom: 0.25em;
+}
+
+.prose-openclaw a {
+  color: hsl(var(--claw-coral));
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.prose-openclaw strong {
+  color: hsl(var(--foreground));
+  font-weight: 600;
+}
+
+.prose-openclaw blockquote {
+  border-left: 3px solid hsl(var(--claw-red));
+  padding-left: 1em;
+  color: hsl(var(--muted-foreground));
+  font-style: italic;
+  margin: 0.75em 0;
 }

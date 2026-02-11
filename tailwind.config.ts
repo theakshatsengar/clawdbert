@@ -47,6 +47,14 @@ export default {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        claw: {
+          red: "hsl(var(--claw-red))",
+          coral: "hsl(var(--claw-coral))",
+          deep: "hsl(var(--claw-deep))",
+          teal: "hsl(var(--claw-teal))",
+          green: "hsl(var(--claw-green))",
+          bubble: "hsl(var(--claw-bubble))",
+        },
         sidebar: {
           DEFAULT: "hsl(var(--sidebar-background))",
           foreground: "hsl(var(--sidebar-foreground))",
