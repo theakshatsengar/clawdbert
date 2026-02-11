@@ -147,9 +147,11 @@ const Index = () => {
     <div className="relative flex h-screen overflow-hidden">
       <BubbleBackground />
 
-      {/* Desktop sidebar */}
-      <div className="hidden md:flex relative z-20">
-        <SidebarWrapper activeId={activeConvId} onSelect={loadConversation} onNew={startNew} />
+      {/* Desktop sidebar - peek on hover */}
+      <div className="hidden md:block fixed inset-y-0 left-0 z-20 w-3 hover:w-64 group/sidebar transition-all duration-300 ease-in-out">
+        <div className="h-full w-64 opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-300">
+          <SidebarWrapper activeId={activeConvId} onSelect={loadConversation} onNew={startNew} />
+        </div>
       </div>
 
       {/* Mobile sidebar overlay */}
@@ -173,7 +175,7 @@ const Index = () => {
       {/* Main chat area */}
       <div className="relative z-10 flex-1 flex flex-col overflow-hidden">
         {/* Header */}
-        <header className="flex items-center justify-between py-3 px-4 border-b border-border/50 bg-background/30 backdrop-blur-md">
+        <header className="flex items-center justify-between py-3 px-4 bg-background/20 backdrop-blur-md">
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden text-muted-foreground hover:text-foreground">
             {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -214,7 +216,7 @@ const Index = () => {
         </div>
 
         {/* Input area */}
-        <div className="border-t border-border/50 bg-background/30 backdrop-blur-md p-4">
+        <div className="bg-background/20 backdrop-blur-md p-4">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-end gap-2 bg-card/80 border border-border rounded-2xl px-4 py-2 focus-within:border-[hsl(var(--claw-red)/0.5)] focus-within:shadow-lg focus-within:shadow-[hsl(var(--claw-red)/0.08)] transition-all">
               <textarea

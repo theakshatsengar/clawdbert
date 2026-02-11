@@ -2,6 +2,8 @@ import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import { LobsterMascot } from "./LobsterMascot";
+import { useAuth } from "@/hooks/useAuth";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 interface ChatMessageProps {
   role: "user" | "assistant";
@@ -11,6 +13,9 @@ interface ChatMessageProps {
 
 export const ChatMessage = ({ role, content, isStreaming = false }: ChatMessageProps) => {
   const isUser = role === "user";
+  const { user } = useAuth();
+  const isMobile = useIsMobile();
+  const avatarUrl = user?.user_metadata?.avatar_url;
 
   return (
     <motion.div
@@ -19,14 +24,18 @@ export const ChatMessage = ({ role, content, isStreaming = false }: ChatMessageP
       transition={{ duration: 0.3, ease: "easeOut" }}
       className={`flex gap-3 ${isUser ? "flex-row-reverse" : "flex-row"}`}
     >
-      {/* Avatar */}
-      <div className="flex-shrink-0 mt-1">
+      {/* Avatar - hidden on mobile for assistant */}
+      <div className={`flex-shrink-0 mt-1 ${!isUser && isMobile ? "hidden" : ""}`}>
         {isUser ? (
-          <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[hsl(var(--claw-coral))] to-[hsl(var(--claw-red))] flex items-center justify-center text-xs font-bold text-primary-foreground">
-            U
-          </div>
+          avatarUrl ? (
+            <img src={avatarUrl} alt="You" className="w-7 h-7 rounded-full object-cover" />
+          ) : (
+            <div className="w-7 h-7 rounded-full bg-gradient-to-br from-[hsl(var(--claw-coral))] to-[hsl(var(--claw-red))] flex items-center justify-center text-xs font-bold text-primary-foreground">
+              U
+            </div>
+          )
         ) : (
-          <LobsterMascot size="sm" isThinking={isStreaming} />
+          <div className="text-lg">🦞</div>
         )}
       </div>
 
