@@ -147,12 +147,10 @@ const Index = () => {
     <div className="relative flex h-dvh overflow-hidden">
       <BubbleBackground />
 
-      {/* Desktop sidebar - slim, below header, peeks on hover */}
-      <div className="hidden md:flex fixed top-12 bottom-0 left-0 z-20 w-10 hover:w-64 group/sidebar transition-all duration-300 ease-in-out">
-        <div className="h-full w-64 transition-opacity duration-300">
-          <div className="opacity-40 group-hover/sidebar:opacity-100 transition-opacity duration-300 h-full">
-            <SidebarWrapper activeId={activeConvId} onSelect={loadConversation} onNew={startNew} />
-          </div>
+      {/* Desktop sidebar - hidden, slides out on hover */}
+      <div className="hidden md:block fixed top-12 bottom-0 left-0 z-20 w-4 hover:w-64 group/sidebar transition-all duration-300 ease-in-out">
+        <div className="h-full w-64 -translate-x-full group-hover/sidebar:translate-x-0 transition-transform duration-300 ease-in-out">
+          <SidebarWrapper activeId={activeConvId} onSelect={loadConversation} onNew={startNew} />
         </div>
       </div>
 
