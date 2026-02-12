@@ -186,7 +186,14 @@ const Index = () => {
               <span className="text-foreground">Bert</span>
             </h1>
           </div>
-          <div className="w-5 md:hidden" />
+          <a
+            href="https://buymeacoffee.com/theakshatsengar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFDD00] text-[#000000] text-xs font-semibold hover:scale-105 transition-transform shadow-md"
+          >
+            ☕ Buy me a coffee
+          </a>
         </header>
 
         {/* Chat area */}
