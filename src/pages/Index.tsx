@@ -144,13 +144,15 @@ const Index = () => {
   };
 
   return (
-    <div className="relative flex h-screen overflow-hidden">
+    <div className="relative flex h-dvh overflow-hidden">
       <BubbleBackground />
 
-      {/* Desktop sidebar - peek on hover */}
-      <div className="hidden md:block fixed inset-y-0 left-0 z-20 w-3 hover:w-64 group/sidebar transition-all duration-300 ease-in-out">
-        <div className="h-full w-64 opacity-0 group-hover/sidebar:opacity-100 transition-opacity duration-300">
-          <SidebarWrapper activeId={activeConvId} onSelect={loadConversation} onNew={startNew} />
+      {/* Desktop sidebar - slim, below header, peeks on hover */}
+      <div className="hidden md:flex fixed top-12 bottom-0 left-0 z-20 w-10 hover:w-64 group/sidebar transition-all duration-300 ease-in-out">
+        <div className="h-full w-64 transition-opacity duration-300">
+          <div className="opacity-40 group-hover/sidebar:opacity-100 transition-opacity duration-300 h-full">
+            <SidebarWrapper activeId={activeConvId} onSelect={loadConversation} onNew={startNew} />
+          </div>
         </div>
       </div>
 
@@ -173,9 +175,9 @@ const Index = () => {
       )}
 
       {/* Main chat area */}
-      <div className="relative z-10 flex-1 flex flex-col overflow-hidden">
+      <div className="relative z-10 flex-1 flex flex-col h-dvh overflow-hidden">
         {/* Header */}
-        <header className="flex items-center justify-between py-3 px-4 bg-background/20 backdrop-blur-md">
+        <header className="flex-shrink-0 flex items-center justify-between py-3 px-4 bg-background/20 backdrop-blur-md h-12">
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden text-muted-foreground hover:text-foreground">
             {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -215,7 +217,7 @@ const Index = () => {
         </div>
 
         {/* Input area */}
-        <div className="bg-background/20 backdrop-blur-md p-4">
+        <div className="flex-shrink-0 bg-background/20 backdrop-blur-md p-4 pb-[env(safe-area-inset-bottom,16px)]">
           <div className="max-w-3xl mx-auto">
             <div className="flex items-end gap-2 bg-card/80 border border-border rounded-2xl px-4 py-2 focus-within:border-[hsl(var(--claw-red)/0.5)] focus-within:shadow-lg focus-within:shadow-[hsl(var(--claw-red)/0.08)] transition-all">
               <textarea
