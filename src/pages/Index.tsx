@@ -182,9 +182,8 @@ const Index = () => {
           <div className="flex items-center gap-2">
             <span className="text-2xl">🦞</span>
             <h1 className="text-lg font-bold tracking-tight">
-              <span className="text-[hsl(var(--claw-coral))]">Open</span>
-              <span className="text-foreground">Claw</span>
-              <span className="text-muted-foreground font-normal ml-2 text-sm">Docs</span>
+              <span className="text-[hsl(var(--claw-coral))]">Clawd</span>
+              <span className="text-foreground">Bert</span>
             </h1>
           </div>
           <div className="w-5 md:hidden" />
@@ -224,7 +223,7 @@ const Index = () => {
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 onKeyDown={handleKeyDown}
-                placeholder="Ask Clawbert about OpenClaw..."
+                placeholder="Ask ClawdBert about OpenClaw..."
                 rows={1}
                 className="flex-1 bg-transparent border-none outline-none resize-none text-sm text-foreground placeholder:text-muted-foreground py-2 max-h-32"
                 disabled={isLoading}
@@ -239,7 +238,7 @@ const Index = () => {
               </button>
             </div>
             <p className="text-center text-[10px] text-muted-foreground/50 mt-2">
-              Clawbert answers based on OpenClaw documentation. EXFOLIATE! 🦞
+              ClawdBert answers based on OpenClaw documentation. EXFOLIATE! 🦞
             </p>
           </div>
         </div>
