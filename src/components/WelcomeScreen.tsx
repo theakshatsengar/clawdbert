@@ -25,7 +25,7 @@ export const WelcomeScreen = ({ onSuggestionClick }: WelcomeScreenProps) => (
       The AI That Actually Does Things
     </p>
     <p className="text-muted-foreground/60 text-center mb-8 text-xs max-w-md">
-      I'm <span className="text-[hsl(var(--claw-coral))] font-semibold">Clawbert</span>, your friendly lobster docs expert. Ask me anything about OpenClaw!
+      I'm <span className="text-[hsl(var(--claw-coral))] font-semibold">ClawdBert</span>, your friendly OpenClaw docs assistant. Ask me anything!
     </p>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 w-full max-w-lg">
