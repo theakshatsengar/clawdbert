@@ -41,7 +41,7 @@ export const ChatMessage = ({ role, content, isStreaming = false }: ChatMessageP
 
       {/* Message bubble */}
       <div
-        className={`max-w-[80%] rounded-2xl px-4 py-3 ${
+        className={`max-w-[90%] rounded-2xl px-4 py-3 ${
           isUser
             ? "bg-gradient-to-br from-[hsl(var(--claw-red))] to-[hsl(var(--claw-coral))] text-primary-foreground rounded-tr-sm"
             : "bg-card border border-border rounded-tl-sm shadow-lg shadow-[hsl(var(--claw-red)/0.05)]"
