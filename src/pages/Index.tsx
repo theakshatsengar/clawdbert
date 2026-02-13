@@ -147,11 +147,9 @@ const Index = () => {
     <div className="relative flex h-dvh overflow-hidden">
       <BubbleBackground />
 
-      {/* Desktop sidebar - peeking dock, slides out on hover */}
-      <div className="hidden md:block fixed top-12 bottom-0 left-0 z-10 w-10 hover:w-64 group/sidebar transition-all duration-300 ease-in-out">
-        <div className="h-full w-64 -translate-x-[calc(100%-10px)] group-hover/sidebar:translate-x-0 transition-transform duration-300 ease-in-out">
-          <SidebarWrapper activeId={activeConvId} onSelect={loadConversation} onNew={startNew} />
-        </div>
+      {/* Desktop sidebar - always visible */}
+      <div className="hidden md:flex fixed top-12 bottom-0 left-0 z-10 w-64">
+        <SidebarWrapper activeId={activeConvId} onSelect={loadConversation} onNew={startNew} />
       </div>
 
       {/* Mobile sidebar overlay */}
@@ -173,7 +171,7 @@ const Index = () => {
       )}
 
       {/* Main chat area */}
-      <div className="relative z-10 flex-1 flex flex-col h-dvh overflow-hidden">
+      <div className="relative z-10 flex-1 flex flex-col h-dvh overflow-hidden md:ml-64">
         {/* Header */}
         <header className="fixed top-0 left-0 right-0 z-20 flex items-center justify-between py-3 px-4 bg-background/20 backdrop-blur-md h-12">
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden text-muted-foreground hover:text-foreground">
