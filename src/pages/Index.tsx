@@ -11,14 +11,14 @@ import { ConversationSidebar } from "@/components/ConversationSidebar";
 import { streamChat, type Msg } from "@/lib/chat-stream";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
-          <a
-            href="https://buymeacoffee.com/theakshatsengar"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-300 text-black text-xs font-semibold hover:bg-amber-200 transition-colors shadow-sm"
-          >
-            ☕ Buy me a coffee
-          </a>
+
+const Index = () => {
+  const { user, loading } = useAuth();
+  const [messages, setMessages] = useState<Msg[]>([]);
+  const [input, setInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [activeConvId, setActiveConvId] = useState<string | null>(null);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLTextAreaElement>(null);
   const sidebarRef = useRef<{ reload: () => void }>(null);
@@ -184,7 +184,14 @@ import { supabase } from "@/integrations/supabase/client";
               <span className="text-foreground">Bert</span>
             </h1>
           </div>
-          <div className="w-5" /> {/* Spacer to balance header */}
+          <a
+            href="https://buymeacoffee.com/theakshatsengar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-300 text-black text-xs font-semibold hover:bg-amber-200 transition-colors shadow-sm"
+          >
+            ☕ Buy me a coffee
+          </a>
         </header>
 
         {/* Spacer for fixed header */}
