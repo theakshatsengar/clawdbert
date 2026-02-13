@@ -8,7 +8,6 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import McpSettings from "./pages/McpSettings";
 import NotFound from "./pages/NotFound";
-import MainLayout from "@/components/MainLayout";
 
 const queryClient = new QueryClient();
 
@@ -20,14 +19,11 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <Routes>
+            <Route path="/" element={<Index />} />
             <Route path="/auth" element={<Auth />} />
-
-            {/* Main app layout: sidebar + header. Nested routes render inside. */}
-            <Route path="/" element={<MainLayout />}>
-              <Route index element={<Index />} />
-              <Route path="mcp" element={<McpSettings />} />
-              <Route path="*" element={<NotFound />} />
-            </Route>
+            <Route path="/mcp" element={<McpSettings />} />
+            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </BrowserRouter>
       </TooltipProvider>
