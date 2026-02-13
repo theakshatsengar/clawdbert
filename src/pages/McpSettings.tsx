@@ -123,7 +123,7 @@ const McpSettings = () => {
       {/* Main content area */}
       <div className="relative z-10 flex-1 flex flex-col h-dvh overflow-auto md:ml-64">
         {/* Header */}
-        <header className="fixed top-0 left-0 right-0 z-20 flex items-center justify-start py-3 px-4 bg-background/20 backdrop-blur-md h-12">
+        <header className="fixed top-0 left-0 right-0 z-20 flex items-center py-3 px-4 bg-background/20 backdrop-blur-md h-12">
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden text-muted-foreground hover:text-foreground">
             {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
@@ -134,6 +134,17 @@ const McpSettings = () => {
               <span className="text-foreground">Bert</span>
             </h1>
           </div>
+
+          <div className="ml-auto hidden sm:flex items-center">
+            <a
+              href="https://www.buymeacoffee.com/snooooofy"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-sm bg-amber-400 text-amber-900 px-3 py-1.5 rounded-lg hover:opacity-90"
+            >
+              ☕ Buy me a coffee
+            </a>
+          </div>
         </header>
 
         <div className="h-12 flex-shrink-0" />
@@ -141,18 +152,9 @@ const McpSettings = () => {
         <div className="relative z-10 max-w-2xl mx-auto px-4 py-8">
 
         <h1 className="text-2xl font-bold mb-1 text-foreground">MCP Server Settings</h1>
-        <p className="text-sm text-muted-foreground mb-3">
+        <p className="text-sm text-muted-foreground mb-6">
           Use ClawdBert as an MCP tool in other AI apps like Claude Desktop, Cursor, etc.
         </p>
-
-        <a
-          href="https://www.buymeacoffee.com/snooooofy"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-sm bg-amber-400 text-amber-900 px-3 py-1.5 rounded-lg mb-6 hover:opacity-90"
-        >
-          ☕ Buy me a coffee
-        </a>
 
         {/* Server URL */}
         <div className="bg-card/60 backdrop-blur-md border border-border/40 rounded-2xl p-5 mb-4">
