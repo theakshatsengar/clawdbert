@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Plus, MessageSquare, Trash2, LogOut } from "lucide-react";
+import { Plus, MessageSquare, Trash2, LogOut, Plug } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/hooks/useAuth";
 import { motion, AnimatePresence } from "framer-motion";
@@ -79,6 +79,13 @@ export const ConversationSidebar = ({ activeId, onSelect, onNew }: Props) => {
       </div>
 
       <div className="p-3 border-t border-border/30 space-y-1">
+        <a
+          href="/mcp"
+          className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
+        >
+          <Plug className="w-4 h-4" />
+          MCP Server
+        </a>
         <button
           onClick={signOut}
           className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"

@@ -2,3 +2,9 @@ project_id = "iryjjnskiapwuptjzsnl"
 
 [functions.openclaw-chat]
 verify_jwt = false
+
+[functions.mcp-server]
+verify_jwt = false
+
+[functions.generate-mcp-key]
+verify_jwt = false
