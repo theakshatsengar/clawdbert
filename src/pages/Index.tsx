@@ -147,32 +147,9 @@ const Index = () => {
     <div className="relative flex h-dvh overflow-hidden">
       <BubbleBackground />
 
-      {/* Header - full width, on top of everything */}
-      <header className="fixed top-0 left-0 right-0 z-30 flex items-center justify-between py-3 px-4 bg-background/20 backdrop-blur-md h-12">
-        <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden text-muted-foreground hover:text-foreground">
-          {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-        </button>
-        <div className="flex items-center gap-2">
-          <span className="text-2xl">🦞</span>
-          <h1 className="text-lg font-bold tracking-tight">
-            <span className="text-[hsl(var(--claw-coral))]">Clawd</span>
-            <span className="text-foreground">Bert</span>
-          </h1>
-        </div>
-        <a
-          href="https://buymeacoffee.com/theakshatsengar"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFDD00] text-[#000000] text-xs font-semibold hover:scale-105 transition-transform shadow-md"
-        >
-          ☕ Buy me a coffee
-        </a>
-      </header>
-
-      {/* Desktop sidebar - peeking dock below header */}
-      <div className="hidden md:block fixed top-12 bottom-0 left-0 z-20 group/sidebar">
-        <div className="w-10 h-full" />
-        <div className="absolute top-0 bottom-0 left-0 w-64 transform -translate-x-[calc(100%-10px)] group-hover/sidebar:translate-x-0 transition-transform duration-300 ease-in-out">
+      {/* Desktop sidebar - peeking dock, slides out on hover */}
+      <div className="hidden md:block fixed top-12 bottom-0 left-0 z-20 w-10 hover:w-64 group/sidebar transition-all duration-300 ease-in-out">
+        <div className="h-full w-64 -translate-x-[calc(100%-10px)] group-hover/sidebar:translate-x-0 transition-transform duration-300 ease-in-out">
           <SidebarWrapper activeId={activeConvId} onSelect={loadConversation} onNew={startNew} />
         </div>
       </div>
@@ -196,7 +173,29 @@ const Index = () => {
       )}
 
       {/* Main chat area */}
-      <div className="relative z-10 flex-1 flex flex-col h-dvh overflow-hidden pt-12">
+      <div className="relative z-10 flex-1 flex flex-col h-dvh overflow-hidden">
+        {/* Header */}
+        <header className="flex-shrink-0 flex items-center justify-between py-3 px-4 bg-background/20 backdrop-blur-md h-12">
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden text-muted-foreground hover:text-foreground">
+            {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+          <div className="flex items-center gap-2">
+            <span className="text-2xl">🦞</span>
+            <h1 className="text-lg font-bold tracking-tight">
+              <span className="text-[hsl(var(--claw-coral))]">Clawd</span>
+              <span className="text-foreground">Bert</span>
+            </h1>
+          </div>
+          <a
+            href="https://buymeacoffee.com/theakshatsengar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[#FFDD00] text-[#000000] text-xs font-semibold hover:scale-105 transition-transform shadow-md"
+          >
+            ☕ Buy me a coffee
+          </a>
+        </header>
+
         {/* Chat area */}
         <div className="flex-1 overflow-hidden">
           <div ref={scrollRef} className="h-full overflow-y-auto px-4 py-6">

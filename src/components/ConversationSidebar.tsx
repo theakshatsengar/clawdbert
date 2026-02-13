@@ -78,18 +78,7 @@ export const ConversationSidebar = ({ activeId, onSelect, onNew }: Props) => {
         </AnimatePresence>
       </div>
 
-      <div className="p-3 border-t border-border space-y-2">
-        <a
-          href="https://x.com/theakshatsengar"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center gap-2 px-3 py-2 rounded-xl text-xs text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
-        >
-          <span className="text-sm">🛠️</span>
-          <span>
-            Built by <span className="font-semibold text-foreground">Akshat</span> · Developer
-          </span>
-        </a>
+      <div className="p-3 border-t border-border">
         <button
           onClick={signOut}
           className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
