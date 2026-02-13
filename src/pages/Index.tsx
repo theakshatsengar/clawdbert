@@ -184,7 +184,14 @@ const Index = () => {
               <span className="text-foreground">Bert</span>
             </h1>
           </div>
-          <div className="w-5" /> {/* Spacer to balance header */}
+          <a
+            href="https://buymeacoffee.com/theakshatsengar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-amber-300 text-black text-xs font-semibold hover:bg-amber-200 transition-colors shadow-sm"
+          >
+            ☕ Buy me a coffee
+          </a>
         </header>
 
         {/* Spacer for fixed header */}
