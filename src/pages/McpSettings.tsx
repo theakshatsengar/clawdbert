@@ -1,10 +1,12 @@
 import { useState, useEffect } from "react";
 import { Navigate } from "react-router-dom";
-import { Copy, Plus, Trash2, ArrowLeft, Key } from "lucide-react";
+import { Copy, Plus, Trash2, ArrowLeft, Key, Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { toast } from "sonner";
 import { useAuth } from "@/hooks/useAuth";
 import { supabase } from "@/integrations/supabase/client";
 import { BubbleBackground } from "@/components/BubbleBackground";
+import { ConversationSidebar } from "@/components/ConversationSidebar";
 
 interface ApiKeyRow {
   id: string;
@@ -15,6 +17,7 @@ interface ApiKeyRow {
 
 const McpSettings = () => {
   const { user, loading, session } = useAuth();
+  const [sidebarOpen, setSidebarOpen] = useState(false);
   const [keys, setKeys] = useState<ApiKeyRow[]>([]);
   const [newKeyName, setNewKeyName] = useState("");
   const [generatedKey, setGeneratedKey] = useState<string | null>(null);
@@ -91,12 +94,54 @@ const McpSettings = () => {
   if (!user) return <Navigate to="/auth" replace />;
 
   return (
-    <div className="relative min-h-dvh">
+    <div className="relative flex h-dvh overflow-hidden">
       <BubbleBackground />
-      <div className="relative z-10 max-w-2xl mx-auto px-4 py-8">
-        <a href="/" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors">
-          <ArrowLeft className="w-4 h-4" /> Back to Chat
-        </a>
+
+      {/* Desktop sidebar */}
+      <div className="hidden md:block fixed top-12 bottom-0 left-0 z-20 w-64">
+        <ConversationSidebar activeId={null} onSelect={() => {}} onNew={() => {}} />
+      </div>
+
+      {/* Mobile sidebar overlay */}
+      <AnimatePresence>
+        {sidebarOpen && (
+          <motion.div
+            initial={{ x: -260 }}
+            animate={{ x: 0 }}
+            exit={{ x: -260 }}
+            transition={{ type: "spring", damping: 25, stiffness: 300 }}
+            className="fixed inset-y-0 left-0 z-30 md:hidden"
+          >
+            <ConversationSidebar activeId={null} onSelect={() => {}} onNew={() => {}} />
+          </motion.div>
+        )}
+      </AnimatePresence>
+      {sidebarOpen && (
+        <div className="fixed inset-0 z-20 bg-background/60 md:hidden" onClick={() => setSidebarOpen(false)} />
+      )}
+
+      {/* Main content area */}
+      <div className="relative z-10 flex-1 flex flex-col h-dvh overflow-hidden md:ml-64">
+        {/* Header */}
+        <header className="fixed top-0 left-0 right-0 z-20 flex items-center justify-start py-3 px-4 bg-background/20 backdrop-blur-md h-12">
+          <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden text-muted-foreground hover:text-foreground">
+            {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+          <div className="flex items-center gap-2 ml-2">
+            <span className="text-2xl">🦞</span>
+            <h1 className="text-lg font-bold tracking-tight">
+              <span className="text-[hsl(var(--claw-coral))]">Clawd</span>
+              <span className="text-foreground">Bert</span>
+            </h1>
+          </div>
+        </header>
+
+        <div className="h-12 flex-shrink-0" />
+
+        <div className="relative z-10 max-w-2xl mx-auto px-4 py-8">
+          <a href="/" className="inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground mb-6 transition-colors">
+            <ArrowLeft className="w-4 h-4" /> Back to Chat
+          </a>
 
         <h1 className="text-2xl font-bold mb-1 text-foreground">MCP Server Settings</h1>
         <p className="text-sm text-muted-foreground mb-6">

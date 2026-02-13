@@ -199,7 +199,7 @@ const Index = () => {
 
         {/* Chat area */}
         <div className="flex-1 overflow-hidden">
-          <div ref={scrollRef} className="h-full overflow-y-auto px-4 py-6">
+          <div ref={scrollRef} className="h-full overflow-y-auto px-4 py-6 no-scrollbar">
             <div className="max-w-3xl mx-auto space-y-6">
               <AnimatePresence mode="wait">
                 {messages.length === 0 ? (
