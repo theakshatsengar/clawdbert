@@ -173,11 +173,11 @@ const Index = () => {
       {/* Main chat area */}
       <div className="relative z-10 flex-1 flex flex-col h-dvh overflow-hidden md:ml-64">
         {/* Header */}
-        <header className="fixed top-0 left-0 right-0 z-20 flex items-center justify-between py-3 px-4 bg-background/20 backdrop-blur-md h-12">
+        <header className="fixed top-0 left-0 right-0 z-20 flex items-center justify-start md:justify-between py-3 px-4 bg-background/20 backdrop-blur-md h-12">
           <button onClick={() => setSidebarOpen(!sidebarOpen)} className="md:hidden text-muted-foreground hover:text-foreground">
             {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 ml-2 md:mx-auto">
             <span className="text-2xl">🦞</span>
             <h1 className="text-lg font-bold tracking-tight">
               <span className="text-[hsl(var(--claw-coral))]">Clawd</span>

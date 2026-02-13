@@ -86,15 +86,6 @@ export const ConversationSidebar = ({ activeId, onSelect, onNew }: Props) => {
           <Plug className="w-4 h-4" />
           MCP Server
         </a>
-        <a
-          href="https://buymeacoffee.com/theakshatsengar"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="md:hidden w-full flex items-center gap-2 px-3 py-2 rounded-xl bg-amber-300 text-black text-sm font-semibold hover:bg-amber-200 transition-colors mb-2"
-        >
-          ☕ Buy me a coffee
-        </a>
-
         <button
           onClick={signOut}
           className="w-full flex items-center gap-2 px-3 py-2 rounded-xl text-sm text-muted-foreground hover:text-foreground hover:bg-muted transition-colors"
@@ -102,6 +93,17 @@ export const ConversationSidebar = ({ activeId, onSelect, onNew }: Props) => {
           <LogOut className="w-4 h-4" />
           Sign Out
         </button>
+
+        <div className="border-t border-border/30 mt-2 pt-2">
+          <a
+            href="https://buymeacoffee.com/theakshatsengar"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="md:hidden w-full flex items-center justify-center gap-2 px-3 py-2 rounded-xl bg-amber-300 text-black text-sm font-semibold hover:bg-amber-200 transition-colors"
+          >
+            ☕ Buy me a coffee
+          </a>
+        </div>
       </div>
     </div>
   );
