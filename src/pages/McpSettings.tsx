@@ -278,6 +278,7 @@ const McpSettings = () => {
         </div>
       </div>
     </div>
+  </div>
   );
 };
 
